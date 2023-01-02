@@ -1,0 +1,195 @@
+body {
+
+  margin: 0;
+  padding: 0;
+  width: auto;
+  font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+
+}
+
+.form-field {
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+
+}
+
+.form-field input {
+
+  width: 30%;
+  background-color: white;
+  border: 0.3px solid grey;
+  padding: 3px;
+
+}
+
+.form-field select {
+
+  background-color: white;
+
+}
+
+.form-field select:focus {
+
+  outline: none;
+  font-weight: bold;
+
+}
+
+.form-field input:focus {
+
+  outline: none;
+  border: 0.3px solid black;
+  margin: none;
+
+}
+
+#upload-data {
+   opacity: 0;
+   position: absolute;
+   z-index: -1;
+}
+
+input[readonly] {
+
+  opacity: 0.7;
+  cursor: not-allowed;
+  background: lightgrey;
+
+}
+
+select[disabled] {
+
+  opacity: 0.7;
+  cursor: not-allowed;
+  background: lightgrey;
+
+}
+
+input[disabled] {
+
+  cursor: not-allowed;
+  background: lightgrey;
+
+}
+
+.main-form {
+
+  margin: 0;
+
+}
+
+.form-content {
+
+  margin: 0 10px;
+
+}
+
+.main-menu {
+
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 500px;
+  background: white;
+  margin-left: -400px;
+  margin-top: -250px;
+  border-radius: 10px;
+  box-shadow: 13px 13px 14px -6px rgba(0,0,0,0.75);
+  border: 3px solid black;
+  display: flex;
+  flex-flow: column nowrap;
+
+}
+
+.main-menu h2 {
+
+  text-align: center;
+  margin: 0;
+  font-size: 35px;
+  align-self: flex-start;
+
+}
+
+.main-menu-bottom-content {
+
+  text-align: center;
+  align-self: center;
+
+}
+
+.main-menu-bottom-content h3 {
+
+  font-size: 15px;
+  font-weight: 400;
+
+}
+
+.main-menu-bottom-content label {
+
+  color: #1c8321;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s ease-in-out;
+  font-size: 1.5em
+
+}
+
+.main-menu-bottom-content label:hover {
+
+  color: rgb(4, 70, 4);
+
+}
+
+.main-menu-center-content img {
+
+  width: 250px;
+  height: auto;
+
+}
+
+.window {
+
+  top: 15vh;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+  min-width: 1440px;
+  min-height: 672px;
+  
+
+}
+
+.background-image {
+
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url("../images/background-image.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+}
+
+.hidden {
+
+  display: none;
+
+}
+
+.visible {
+
+   position: absolute; 
+   top: 0; 
+   left: 0;
+   z-index: 10;
+
+}

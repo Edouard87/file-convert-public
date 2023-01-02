@@ -1,0 +1,20 @@
+{
+  "name": "xml-h2k-project",
+  "version": "1.6.0",
+  "description": "Convertes xlsx files to h2k files so they may be read by the HOT2000 application.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Edouard Des Parois Perrault",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^16.0.1",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.5",
+    "xlsx": "^0.15.1"
+  }
+}

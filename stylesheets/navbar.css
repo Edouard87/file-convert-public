@@ -1,0 +1,148 @@
+.navbar {
+
+  height: 15vh;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background-color: black;
+  min-width: 1440px;
+  min-height: 101.25px;
+
+}
+
+.navbar-logo {
+
+  width: 250px;
+  margin: 10px;
+  margin-bottom: 3px;
+
+}
+
+.navbar p {
+
+  color: white;
+  margin: 0;
+  font-size: 12px;
+  text-align: center
+
+}
+
+.navbar-small {
+
+  height: 30px;
+  width: 100%;
+  position: sticky;
+  z-index: 1;
+  background-color: darkgreen;
+  margin-top: 100px;
+
+}
+
+.navbar-small form {
+
+  display: inline;
+  overflow: hidden;
+
+}
+
+.bottom {
+
+  left: 0;
+  bottom: 0;
+
+}
+
+.top {
+
+  left: 0;
+  top: 0;
+
+}
+
+.navbar-small-content {
+
+  margin-left: 10px;
+
+}
+
+.navbar-button {
+
+  color: white;
+  font-size: 12px;
+  text-decoration: underline;
+
+}
+
+.navbar-item {
+
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+
+}
+
+.navbar-item.small {
+
+  line-height: 30px;
+
+}
+
+.navbar-button:hover {
+
+  text-decoration: none;
+  cursor: pointer;
+
+}
+
+.navbar-button.small {
+
+  line-height: 30px;
+
+}
+
+.no-default-button {
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  font-family: inherit;
+  margin: 0;
+  padding: 0;
+
+}
+
+.no-default-button:focus {
+
+  outline: none;
+  font-weight: bold;
+
+}
+
+.navbar-group {
+
+  height: 100%; 
+  display: table;
+  
+
+}
+
+.button-tray {
+
+  height: 30px;
+  width: 30px;
+  background: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 1000px;
+
+}
+
+.button-tray-icon {
+
+  width: 30px;
+  margin: auto 0;
+  display: block;
+  cursor: pointer;
+
+}

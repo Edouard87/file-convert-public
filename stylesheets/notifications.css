@@ -1,0 +1,59 @@
+.notifications {
+
+    width: 300px;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    overflow: scroll;
+
+}
+
+.gradient {
+
+    background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(231,56,39,0) 100%);
+
+}
+
+.notification {
+
+    width: 80%;
+    /* height: 50px; */
+    margin: 36px auto;
+    background-color: white;
+    padding: 10px;
+
+}
+
+
+.notification h2 {
+
+    margin: 0;
+    margin-left: 10px;
+    float: left;
+
+}
+
+.notification-icon {
+
+    height: 30px;
+    float: left;
+
+}
+
+.notification-body-spacing {
+
+    margin-top: 40px;
+
+}
+
+.notification p {
+
+    text-align: left;
+    
+}
+
+.notification-time {
+
+    font-size: 10px;
+
+}

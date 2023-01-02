@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<HouseFile xml:lang="en" uiUnits="Imperial">
+    <Version major="1" minor="3">
+        <Labels>
+            <English>v1.3</English>
+            <French>v1.3</French>
+        </Labels>
+    </Version>
+    <Application>
+        <Name>HOT2000</Name>
+        <Version major="11" minor="7" build="23">
+            <Labels>
+                <English>v11.7b23</English>
+                <French>v11.7b23</French>
+            </Labels>
+        </Version>
+    </Application>
+    <ProgramInformation mixed="false">
+        <Weather depthOfFrost="1.2192" heatingDegreeDay="4200" library="Wth110.dir">
+          <Region code="<%= weather.region.code %>">
+              <English><%= weather.region.english.toUpperCase() %></English>
+              <French><%= weather.region.french.toUpperCase() %></French>
+          </Region>
+          <Location code="<%= weather.location.code %>">
+              <English><%= weather.location.english.toUpperCase() %></English>
+              <French><%= weather.location.english.toUpperCase() %></French>
+          </Location>
+        </Weather>
+        <File evaluationDate="<%= file.evaluationDate %>">
+            <Identification><%= file.identification %></Identification>
+            <PreviousFileId><%= file.previousFileId %></PreviousFileId>
+            <EnrollmentId />
+            <Ownership code="<%= file.ownership.code %>">
+                <English><%= file.ownership.english %></English>
+                <French><%= file.ownership.french %></French>
+            </Ownership>
+            <TaxNumber><%= file.taxNumber %></TaxNumber>
+            <EnteredBy><%= file.enteredBy %></EnteredBy>
+            <UserTelephone />
+            <UserExtension />
+            <CompanyTelephone />
+            <CompanyExtension />
+            <Company><%= file.company %></Company>
+            <BuilderName><%= file.builderName %></BuilderName>
+            <HomeownerAuthorizationId />
+        </File>
+        <Client>
+            <Name>
+                <First><%= client.name.first %></First>
+                <Last><%= client.name.last %></Last>
+            </Name>
+            <Telephone><%= client.telephone %></Telephone>
+            <StreetAddress>
+                <Street><%- client.streetAddress.street %></Street>
+                <City><%= client.streetAddress.city %></City>
+                <Province><%= client.streetAddress.province %></Province>
+                <PostalCode><%= client.streetAddress.postalCode %></PostalCode>
+            </StreetAddress>
+            <MailingAddress>
+                <Name><%= client.mailingAddress.name %></Name>
+                <Street><%- client.mailingAddress.street %></Street>
+                <City><%= client.mailingAddress.city %></City>
+                <Province><%= client.mailingAddress.province %></Province>
+                <PostalCode><%= client.mailingAddress.postalCode %></PostalCode>
+            </MailingAddress>
+        </Client>
+        <Justifications nameplateEfficiency="false" combustionTestEfficiency="false" heatingCorrection="false" achCorrection="false" twoBlowerDoors="false" over18Months="false">
+            <PossessionDate selected="false" />
+            <HeatingVolumeDecrease selected="false" />
+            <CorrectedInsulation>
+                <Ceilings selected="false" />
+                <Walls selected="false" />
+                <Basement selected="false" />
+            </CorrectedInsulation>
+            <Other selected="false" />
+            <EnergyStar code="1">
+                <English>N/A</English>
+                <French>N/A</French>
+            </EnergyStar>
+        </Justifications>
+        <Information>
+        <% try { %>
+
+            <% for (var i = 0; i < info.id.length; i++) {%>
+            <Info code="<%= info.id[i] %>"><%= info.value[i] %></Info>
+            <% } %>
+
+        <% } catch(err) { %>
+
+
+        <% } %>
+          
+        </Information>
+    </ProgramInformation>
+    <House id="0">
+        <Labels>
+            <English>Maison</English>
+            <French xml:lang="fr">Maison</French>
+        </Labels>
+        <Specifications effectiveMassFraction="1" defaultRoofCavity="false" buildingType="House">
+            <HouseType code="<%= house.specifications.houseType.code %>">
+                <English><%= house.specifications.houseType.english %></English>
+                <French><%= house.specifications.houseType.french %></French>
+            </HouseType>
+            <PlanShape code="1">
+                <English>Rectangular</English>
+                <French>Rectangulaire</French>
+            </PlanShape>
+            <Storeys code="<%= house.specifications.storeys.code %>">
+                <English><%= house.specifications.storeys.english %></English>
+                <French><%= house.specifications.storeys.french %></French>
+            </Storeys>
+            <FacingDirection code="<%= house.specifications.facingDirection.code %>">
+                <English><%= house.specifications.facingDirection.english %></English>
+                <French><%= house.specifications.facingDirection.french %></French>
+            </FacingDirection>
+            <ThermalMass code="1">
+                <English>Light, wood frame</English>
+                <French>Légère, ossature de bois</French>
+            </ThermalMass>
+            <YearBuilt code="<%= house.specifications.yearBuilt.code %>" value="<%= house.specifications.yearBuilt.value %>">
+                <English><%- house.specifications.yearBuilt.english %></English>
+                <French><%- house.specifications.yearBuilt.french %></French>
+            </YearBuilt>
+            <WallColour code="10" value="0.4">
+                <English>Default</English>
+                <French>par défaut</French>
+            </WallColour>
+            <SoilCondition code="1">
+                <English>Normal conductivity (dry sand, loam, clay)</English>
+                <French>conductivité normale (sable sec, argile)</French>
+            </SoilCondition>
+            <RoofColour code="10" value="0.4">
+                <English>Default</English>
+                <French>par défaut</French>
+            </RoofColour>
+            <WaterLevel code="2">
+                <English>Normal (7-10m/23-33ft)</English>
+                <French>Normal (7-10m/23-33pi)</French>
+            </WaterLevel>
+            <RoofCavity volume="56.5517" ventilationRate="0.5">
+                <GableEnds area="12.8702">
+                    <SheatingMaterial code="5" value="0.0826">
+                        <English>Plywood/Part. bd 9.5 mm (3/8 in)</English>
+                        <French>Cont./pan. part. 9.5 mm (3/8 po)</French>
+                    </SheatingMaterial>
+                    <ExteriorMaterial code="3" value="0.11">
+                        <English>Hollow metal/vinyl cladding</English>
+                        <French>Métal creux/revêtement vinyle</French>
+                    </ExteriorMaterial>
+                </GableEnds>
+                <SlopedRoof area="81.4056">
+                    <SheatingMaterial code="6" value="0.1105">
+                        <English>Plywood/Part. bd 12.7 mm (1/2 in)</English>
+                        <French>Cont./pan. part. 12.7 mm (1/2 po)</French>
+                    </SheatingMaterial>
+                    <RoofingMaterial code="2" value="0.078">
+                        <English>Asphalt shingles</English>
+                        <French>Bardeau d'asphalte</French>
+                    </RoofingMaterial>
+                </SlopedRoof>
+            </RoofCavity>
+            <HeatedFloorArea aboveGrade="<%= house.specifications.heatedFloorArea.aboveGrade %>" belowGrade="<%= house.specifications.heatedFloorArea.belowGrade %>" />
+        </Specifications>
+        <WindowTightness code="1" value="1.86">
+            <English>CSA - A1</English>
+            <French>CSA - A1</French>
+        </WindowTightness>
+        <Temperatures id="19">
+            <Label>Températures</Label>
+            <MainFloors daytimeHeatingSetPoint="21" nighttimeHeatingSetPoint="18" nighttimeSetbackDuration="8" coolingSetPoint="25">
+                <AllowableRise code="3">
+                    <English>High (5.5 C = 9.9 F)</English>
+                    <French>Haute (5.5 C = 9.9 F)</French>
+                </AllowableRise>
+            </MainFloors>
+            <Basement heated="true" cooled="false" separateThermostat="false" heatingSetPoint="19" basementUnit="false" />
+            <Equipment heatingSetPoint="22" coolingSetPoint="24" />
+            <Crawlspace heated="false" heatingSetPoint="15" />
+        </Temperatures>
+        <BaseLoads basementFractionOfInternalGains="0.15" commonSpaceElectricalConsumption="0" id="20">
+            <Label>Charges de base</Label>
+            <Occupancy isOccupied="true">
+                <Adults occupants="2" atHome="50" />
+                <Children occupants="1" atHome="50" />
+                <Infants occupants="0" atHome="0" />
+            </Occupancy>
+            <Summary electricalAppliances="6.2997" lighting="2.6" otherElectric="9.7" exteriorUse="0.9" hotWaterLoad="189.8137" />
+            <WaterUsage temperature="55" otherHotWaterUse="2.92" lowFlushToilets="0">
+                <BathroomFaucets code="2" value="8.3" numberPerOccupantPerDay="1.33">
+                    <English>Standard 8.3 L/min (2.2 US gpm)</English>
+                    <French>Débit standard 8.3 L/min (2,2 gal/min)</French>
+                </BathroomFaucets>
+                <Shower averageDuration="6.5" numberPerOccupantPerWeek="5.2" totalDurationPerDay="14.4857">
+                    <Temperature code="1" value="41">
+                        <English>Warm 41°C (106°F)</English>
+                        <French>Tempérée 41°C (106°F)</French>
+                    </Temperature>
+                    <FlowRate code="2" value="9.5">
+                        <English>Standard 9.5 L/min (2.5 US gpm)</English>
+                        <French>Standard 9.5 L/min (2.5 ÉU gpm)</French>
+                    </FlowRate>
+                </Shower>
+                <ClothesWasher numberPerOccupantPerWeek="1.9">
+                    <RatedValues code="1" ratedWaterConsumptionPerCycle="54" ratedAnnualEnergyConsumption="197">
+                        <English>Default</English>
+                        <French>Par défaut</French>
+                    </RatedValues>
+                    <Temperature code="0">
+                        <English>Hot</English>
+                        <French>Chaude</French>
+                    </Temperature>
+                </ClothesWasher>
+                <DishWasher numberPerOccupantPerWeek="1.37">
+                    <RatedValues code="1" ratedWaterConsumptionPerCycle="19" ratedAnnualEnergyConsumption="260">
+                        <English>Default</English>
+                        <French>Par défaut</French>
+                    </RatedValues>
+                </DishWasher>
+            </WaterUsage>
+            <ElectricalUsage otherLoad="9.7" averageExteriorUse="0.9">
+                <ClothesDryer percentageOfWasherLoads="71.4">
+                    <EnergySource code="1">
+                        <English>Electric</English>
+                        <French>Électricité</French>
+                    </EnergySource>
+                    <RatedValue code="1" value="916">
+                        <English>Default</English>
+                        <French>Défaut</French>
+                    </RatedValue>
+                    <Location code="1">
+                        <English>Main Floor</English>
+                        <French>Plancher Principal</French>
+                    </Location>
+                </ClothesDryer>
+                <Stove>
+                    <EnergySource code="1">
+                        <English>Electric</English>
+                        <French>Électricité</French>
+                    </EnergySource>
+                    <RatedValue code="1" value="565">
+                        <English>Default</English>
+                        <French>Par défaut</French>
+                    </RatedValue>
+                </Stove>
+                <Refrigerator code="1" value="639">
+                    <English>Default</English>
+                    <French>Par défaut</French>
+                </Refrigerator>
+                <InteriorLighting code="1" value="2.6">
+                    <English>&lt; 25% CFL or LED</English>
+                    <French>&lt; 25% LFC ou DEL </French>
+                </InteriorLighting>
+            </ElectricalUsage>
+        </BaseLoads>
+        <Generation solarReady="false" id="21">
+            <Label>Génération</Label>
+        </Generation>
+        <NaturalAirInfiltration id="15">
+            <Label>Infiltration d'air naturelle</Label>
+            <Specifications>
+                <House volume="<%= house.naturalAirInfiltration.specifications.house.volume %>">
+                    <AirTightnessTest code="x">
+                        <English>Blower door test values</English>
+                        <French>Valeurs d'essai de dépressurisation</French>
+                    </AirTightnessTest>
+                </House>
+                <BlowerTest airChangeRate="3.72" leakageArea="545.8054" isCgsbTest="false" isCalculated="false">
+                    <Pressure code="1">
+                        <English>10 Pa</English>
+                        <French>10 Pa</French>
+                    </Pressure>
+                </BlowerTest>
+                <BuildingSite highestCeiling="<%= house.naturalAirInfiltration.specifications.buildingState.highestCeiling %>">
+                    <Terrain code="7">
+                        <English>Suburban, forest</English>
+                        <French>Banlieue, forêt</French>
+                    </Terrain>
+                </BuildingSite>
+                <LocalShielding>
+                    <Walls code="3">
+                        <English>Heavy</English>
+                        <French>Assez d'abri</French>
+                    </Walls>
+                    <Flue code="2">
+                        <English>Light</English>
+                        <French>Un peu d'abri</French>
+                    </Flue>
+                </LocalShielding>
+                <ExhaustDevicesTest result="0">
+                    <TestStatus code="3">
+                        <English>Test result</English>
+                        <French>Résultat du test</French>
+                    </TestStatus>
+                </ExhaustDevicesTest>
+            </Specifications>
+            <OtherFactors>
+                <WeatherStation anemometerHeight="10">
+                    <Terrain code="3">
+                        <English>Open flat terrain, grass</English>
+                        <French>Prairie à l'herbe</French>
+                    </Terrain>
+                </WeatherStation>
+                <LeakageFractions useDefaults="true" ceilings="0" walls="0" floors="0" />
+            </OtherFactors>
+        </NaturalAirInfiltration>
+        <Ventilation id="16">
+            <Label>Ventilation</Label>
+            <Rooms living="3" bedrooms="3" bathrooms="2" utility="1" otherHabitable="2">
+                <VentilationRate code="1">
+                    <English>Not applicable</English>
+                    <French>Sans objet</French>
+                </VentilationRate>
+                <DepressurizationLimit code="0" value="0" />
+            </Rooms>
+            <Requirements ach="0" supply="0" exhaust="0">
+                <Use code="4">
+                    <English>Not applicable</English>
+                    <French>Sans objet</French>
+                </Use>
+            </Requirements>
+            <WholeHouse temperatureControlLower="-17.7778" temperatureControlUpper="-17.7778">
+                <AirDistributionType code="1">
+                    <English>Forced air heating ductwork</English>
+                    <French>Conduites à entraînement forcé pour l'air chauffé</French>
+                </AirDistributionType>
+                <AirDistributionFanPower code="1">
+                    <English>Default</English>
+                    <French>Par défaut</French>
+                </AirDistributionFanPower>
+                <OperationSchedule code="6" value="480">
+                    <English>480 min/day</English>
+                    <French>480 min/j</French>
+                </OperationSchedule>
+            </WholeHouse>
+            <WholeHouseVentilatorList />
+            <SupplementalVentilatorList>
+                <Dryer supplyFlowrate="0" exhaustFlowrate="38" fanPower1="0" isDefaultFanpower="true" isEnergyStar="false" isHomeVentilatingInstituteCertified="false" isSupplemental="true">
+                    <EquipmentInformation />
+                    <VentilatorType code="5">
+                        <English>Dryer</English>
+                        <French>Sécheuse</French>
+                    </VentilatorType>
+                    <OperationSchedule code="0" value="56.53">
+                        <English>User specified</English>
+                        <French>Spécifié par l’utilisateur</French>
+                    </OperationSchedule>
+                    <Exhaust code="1">
+                        <English>Vented outdoors</English>
+                        <French>Évacuation extérieure</French>
+                    </Exhaust>
+                </Dryer>
+            </SupplementalVentilatorList>
+        </Ventilation>
+        <HeatingCooling id="18">
+            <Label>Chauffage/Climatisation</Label>
+            <CoolingSeason>
+                <Start code="1">January</Start>
+                <End code="12">December</End>
+                <Design code="7">July</Design>
+            </CoolingSeason>
+            <Type1>
+                <FansAndPump hasEnergyEfficientMotor="false">
+                    <Mode code="1">
+                        <English>Auto</English>
+                        <French>Auto</French>
+                    </Mode>
+                    <Power isCalculated="true" low="0" high="0" />
+                </FansAndPump>
+                <Baseboards>
+                    <EquipmentInformation numberOfElectronicThermostats="0" />
+                    <Specifications sizingFactor="1.1" efficiency="100">
+                        <OutputCapacity code="2" value="0" uiUnits="btu/hr">
+                            <English>Calculated</English>
+                            <French>Calculé</French>
+                        </OutputCapacity>
+                    </Specifications>
+                </Baseboards>
+            </Type1>
+            <Type2 shadingInF280Cooling="AccountedFor" />
+            <MultipleSystems>
+                <Summary energySaverHeatingSystems="0" energySaverAirSourceHeatPump="0" woodAppliances="0" epaCsaHeatingSystems="0" />
+            </MultipleSystems>
+        </HeatingCooling>
+        <Components>
+            <Ceiling id="4">
+              <Label><%= components.ceiling.label %></Label>
+              <Construction>
+                  <Type code="<%= components.ceiling.construction.type.code %>">
+                      <English><%= components.ceiling.construction.type.english %></English>
+                      <French><%= components.ceiling.construction.type.french %></French>
+                  </Type>
+                  <CeilingType rValue="<%= components.ceiling.type.rValue %>" nominalInsulation="<%= components.ceiling.type.nominalInsulation %>"><%= components.ceiling.type.code %></CeilingType>
+              </Construction>
+              <Measurements length="<%= components.ceiling.measurements.length %>" area="<%= components.ceiling.measurements.area %>" heelHeight="<%= components.ceiling.measurements.heelHeight %>">
+                  <Slope code="<%= components.ceiling.measurements.slope.code %>" value="<%= components.ceiling.measurements.slope.value %>">
+                      <English><%= components.ceiling.measurements.slope.english %></English>
+                      <French><%- components.ceiling.measurements.slope.french %></French>
+                  </Slope>
+              </Measurements>
+          </Ceiling>
+            <Wall adjacentEnclosedSpace="false" id="2">
+                <Label>étage principal</Label>
+                <Construction corners="4" intersections="4">
+                    <Type rValue="<%= components.wall.construction.type.rValue %>" nominalInsulation="3.2421"><%= components.wall.construction.type.code %></Type>
+                    <LintelType idref="Code 1">100</LintelType>
+                </Construction>
+                <Measurements height="<%= components.wall.measurements.height %>" perimeter="<%= components.wall.measurements.perimeter %>" />
+                <FacingDirection code="1">
+                    <English>N/A</English>
+                    <French>S/O</French>
+                </FacingDirection>
+                <Components>
+                    <Door rValue="0.98" adjacentEnclosedSpace="false" id="5">
+                        <Label>Porte-01</Label>
+                        <Construction energyStar="false">
+                            <Type code="4" value="0.98">
+                                <English>Steel polystyrene core</English>
+                                <French>Acier / âme en polystyrène</French>
+                            </Type>
+                        </Construction>
+                        <Measurements height="2.0066" width="0.8636" />
+                    </Door>
+                </Components>
+            </Wall>
+            <Basement isExposedSurface="true" exposedSurfacePerimeter="39.624" id="1">
+                <Label>Fondation - 1</Label>
+                <Configuration type="BCCN" subtype="3" overlap="0">BCCN_3</Configuration>
+                <OpeningUpstairs code="4" value="1.5598">
+                    <English>User specified</English>
+                    <French>Spécifié par l'utilisateur</French>
+                </OpeningUpstairs>
+                <RoomType code="6">
+                    <English>Utility Room</English>
+                    <French>Pièce Utilitaire</French>
+                </RoomType>
+                <Floor>
+                    <Construction isBelowFrostline="true" hasIntegralFooting="false" heatedFloor="false">
+                        <FloorsAbove idref="Code 3" rValue="0.7058" nominalInsulation="0">4231000660</FloorsAbove>
+                    </Construction>
+                    <Measurements isRectangular="false" area="<%= basement.floor.measurements.area %>"
+                        perimeter="<%= basement.floor.measurements.perimeter %>" />
+                </Floor>
+                <Wall hasPonyWall="false">
+                    <Construction corners="4">
+                        <InteriorAddedInsulation nominalInsulation="<%= basement.wall.construction.interiorAddedInsulation.value %>">
+                            <Description><%= (basement.wall.construction.interiorAddedInsulation.code || "User Specified") %></Description>
+                            <Composite>
+                                <Section rank="1" percentage="100" rsi="<%= basement.wall.construction.interiorAddedInsulation.value %>" nominalRsi="0" />
+                            </Composite>
+                        </InteriorAddedInsulation>
+                        <ExteriorAddedInsulation nominalInsulation="<%= basement.wall.construction.exteriorAddedInsulation.value %>">
+                            <Description><%= (basement.wall.construction.exteriorAddedInsulation.code || "User Specified") %></Description>
+                            <Composite>
+                                <Section rank="1" percentage="100" rsi="<%= basement.wall.construction.exteriorAddedInsulation.value %>" nominalRsi="0" />
+                            </Composite>
+                        </ExteriorAddedInsulation>
+                        <Lintels idref="Code 1">Linteau du sous-sol</Lintels>
+                    </Construction>
+                    <Measurements height="<%= basement.wall.measurements.height %>" depth="<%= basement.wall.measurements.depth %>" ponyWallHeight="0" />
+                </Wall>
+                <Components>
+                    <FloorHeader adjacentEnclosedSpace="false" id="3">
+                        <Label>BW hdr-01</Label>
+                        <Construction>
+                            <Type idref="Code 4" rValue="3.8656" nominalInsulation="3.52">1800300220</Type>
+                        </Construction>
+                        <Measurements height="0.2286" perimeter="34.1376" />
+                        <FacingDirection code="1">
+                            <English>N/A</English>
+                            <French>S/O</French>
+                        </FacingDirection>
+                    </FloorHeader>
+                </Components>
+            </Basement>
+            <HotWater id="17">
+                <Label>Eau chaude domestique</Label>
+                <Primary hasDrainWaterHeatRecovery="false" insulatingBlanket="0" combinedFlue="false" flueDiameter="0" energyStar="false" ecoEnergy="false" userDefinedPilot="false" connectedUnitsDwhr="0">
+                    <EquipmentInformation>
+                        <Manufacturer>Assistant maison DHW fab</Manufacturer>
+                        <Model>Assistant maison DHW mod</Model>
+                    </EquipmentInformation>
+                    <EnergySource code="1">
+                        <English>Electricity</English>
+                        <French>Électricité</French>
+                    </EnergySource>
+                    <TankType code="2">
+                        <English>Conventional tank</English>
+                        <French>Réservoir classique</French>
+                    </TankType>
+                    <TankVolume code="4" value="189.3001">
+                        <English>189.3 L, 41.6 Imp, 50 US gal</English>
+                        <French>189.3 L, 41.6 imp, 50 gal ÉU</French>
+                    </TankVolume>
+                    <EnergyFactor code="2" value="0.82" inputCapacity="0" isUniform="false">
+                        <English>User specified</English>
+                        <French>Spécifié par l'utilisateur</French>
+                    </EnergyFactor>
+                    <TankLocation code="2">
+                        <English>Basement</English>
+                        <French>Sous-sol</French>
+                    </TankLocation>
+                </Primary>
+            </HotWater>
+        </Components>
+    </House>
+    <Codes>
+        <Lintel>
+            <Standard>
+                <Code id="Code 1" value="100" nominalRValue="0">
+                </Code>
+            </Standard>
+        </Lintel>
+        <FloorsAbove>
+            <Standard>
+                <Code id="Code 3" value="4231000660" nominalRValue="0">
+                </Code>
+            </Standard>
+        </FloorsAbove>
+        <FloorHeader>
+            <Standard>
+                <Code id="Code 4" value="1800300220" nominalRValue="3.52">
+                </Code>
+            </Standard>
+        </FloorHeader>
+    </Codes>
+    <EnergyUpgrades>
+        <Settings>
+            <AirTightness cost="0" priority="0" />
+            <Heating cost="0" priority="0" />
+            <Cooling cost="0" priority="0" />
+        </Settings>
+        <Components>
+            <HeatingCooling id="18">
+                <Label>Chauffage/Climatisation</Label>
+                <CoolingSeason>
+                    <Start code="1">January</Start>
+                    <End code="12">December</End>
+                    <Design code="7">July</Design>
+                </CoolingSeason>
+                <Type1>
+                    <FansAndPump hasEnergyEfficientMotor="false">
+                        <Mode code="1">
+                            <English>Auto</English>
+                            <French>Auto</French>
+                        </Mode>
+                        <Power isCalculated="true" low="0" high="164.2392" />
+                    </FansAndPump>
+                    <Furnace>
+                        <EquipmentInformation energystar="false" />
+                        <Equipment isBiEnergy="false" switchoverTemperature="0">
+                            <EnergySource code="1">
+                                <English>Electric</English>
+                                <French>Électricité</French>
+                            </EnergySource>
+                            <EquipmentType code="2">
+                                <English>Electric furnace</English>
+                                <French>Fournaise électrique</French>
+                            </EquipmentType>
+                        </Equipment>
+                        <Specifications sizingFactor="1.1" efficiency="100" isSteadyState="true" pilotLight="0" flueDiameter="0">
+                            <OutputCapacity code="2" value="6" uiUnits="btu/hr">
+                                <English>Calculated</English>
+                                <French>Calculé</French>
+                            </OutputCapacity>
+                        </Specifications>
+                    </Furnace>
+                </Type1>
+                <Type2 shadingInF280Cooling="AccountedFor">
+                    <AirHeatPump>
+                        <EquipmentInformation energystar="true" />
+                        <Equipment crankcaseHeater="60">
+                            <Type code="1">
+                                <English>Central split system</English>
+                                <French>Système central bibloc</French>
+                            </Type>
+                            <Function code="2">
+                                <English>Heating/Cooling</English>
+                                <French>Chauffage/climatisation</French>
+                            </Function>
+                        </Equipment>
+                        <Specifications>
+                            <OutputCapacity code="1" value="3.5169" uiUnits="btu/hr">
+                                <English>User-Specified</English>
+                                <French>Spécifiée par l'utilisateur</French>
+                            </OutputCapacity>
+                            <HeatingEfficiency isCop="false" value="7.4" />
+                            <CoolingEfficiency isCop="false" value="15" />
+                        </Specifications>
+                        <Temperature>
+                            <CutoffType code="1">
+                                <English>Balance point</English>
+                                <French>Point d'équilibre</French>
+                            </CutoffType>
+                            <RatingType code="1" value="8.3333">
+                                <English>8.3 C (47 F)</English>
+                                <French>8.3 C (47 F)</French>
+                            </RatingType>
+                        </Temperature>
+                        <CoolingParameters sensibleHeatRatio="0.76" openableWindowArea="0">
+                            <FansAndPump flowRate="29.7862" hasEnergyEfficientMotor="false">
+                                <Mode code="1">
+                                    <English>Auto</English>
+                                    <French>Auto</French>
+                                </Mode>
+                                <Power isCalculated="true" />
+                            </FansAndPump>
+                        </CoolingParameters>
+                    </AirHeatPump>
+                </Type2>
+                <MultipleSystems>
+                    <Summary energySaverHeatingSystems="0" energySaverAirSourceHeatPump="0" woodAppliances="0" epaCsaHeatingSystems="0" />
+                </MultipleSystems>
+            </HeatingCooling>
+            <NaturalAirInfiltration id="15">
+                <Label>Infiltration d'air naturelle</Label>
+                <Specifications>
+                    <House volume="392.9164">
+                        <AirTightnessTest code="x">
+                            <English>Blower door test values</English>
+                            <French>Valeurs d'essai de dépressurisation</French>
+                        </AirTightnessTest>
+                    </House>
+                    <BlowerTest airChangeRate="3.35" leakageArea="490.9587" isCgsbTest="false" isCalculated="false">
+                        <Pressure code="1">
+                            <English>10 Pa</English>
+                            <French>10 Pa</French>
+                        </Pressure>
+                    </BlowerTest>
+                    <BuildingSite highestCeiling="3.4442">
+                        <Terrain code="7">
+                            <English>Suburban, forest</English>
+                            <French>Banlieue, forêt</French>
+                        </Terrain>
+                    </BuildingSite>
+                    <LocalShielding>
+                        <Walls code="3">
+                            <English>Heavy</English>
+                            <French>Assez d'abri</French>
+                        </Walls>
+                        <Flue code="2">
+                            <English>Light</English>
+                            <French>Un peu d'abri</French>
+                        </Flue>
+                    </LocalShielding>
+                    <ExhaustDevicesTest result="0">
+                        <TestStatus code="3">
+                            <English>Test result</English>
+                            <French>Résultat du test</French>
+                        </TestStatus>
+                    </ExhaustDevicesTest>
+                </Specifications>
+                <OtherFactors>
+                    <WeatherStation anemometerHeight="10">
+                        <Terrain code="3">
+                            <English>Open flat terrain, grass</English>
+                            <French>Prairie à l'herbe</French>
+                        </Terrain>
+                    </WeatherStation>
+                    <LeakageFractions useDefaults="true" ceilings="0" walls="0" floors="0" />
+                </OtherFactors>
+            </NaturalAirInfiltration>
+        </Components>
+    </EnergyUpgrades>
+    <FuelCosts includeCostCalculations="true" library="fuelLib.flc">
+        <Electricity>
+            <Fuel id="1">
+                <Label>Ottawa97</Label>
+                <Comment>Hydro Rate Block</Comment>
+                <Units code="1">
+                    <English>kWhr</English>
+                    <French>kWh</French>
+                </Units>
+                <Minimum units="0" charge="10" />
+                <RateBlocks>
+                    <Block1 units="250" costPerUnit="0.0999" />
+                    <Block2 units="99999" costPerUnit="0.0702" />
+                    <Block3 units="0" costPerUnit="0" />
+                    <Block4 units="0" costPerUnit="0" />
+                </RateBlocks>
+            </Fuel>
+        </Electricity>
+        <NaturalGas>
+            <Fuel id="17">
+                <Label>Ottawa08</Label>
+                <Comment>Gas Rate Block</Comment>
+                <Units code="4">
+                    <English>m³</English>
+                    <French>m³</French>
+                </Units>
+                <Minimum units="0" charge="14" />
+                <RateBlocks>
+                    <Block1 units="30" costPerUnit="0.5338" />
+                    <Block2 units="85" costPerUnit="0.5277" />
+                    <Block3 units="170" costPerUnit="0.5229" />
+                    <Block4 units="99999" costPerUnit="0.5194" />
+                </RateBlocks>
+            </Fuel>
+        </NaturalGas>
+        <Oil>
+            <Fuel id="18">
+                <Label>Ottawa08</Label>
+                <Comment>Oil Rate Block</Comment>
+                <Units code="2">
+                    <English>Litre</English>
+                    <French>Litre</French>
+                </Units>
+                <Minimum units="0" charge="0" />
+                <RateBlocks>
+                    <Block1 units="99999" costPerUnit="1.175" />
+                    <Block2 units="0" costPerUnit="0" />
+                    <Block3 units="0" costPerUnit="0" />
+                    <Block4 units="0" costPerUnit="0" />
+                </RateBlocks>
+            </Fuel>
+        </Oil>
+        <Propane>
+            <Fuel id="19">
+                <Label>Ottawa08</Label>
+                <Comment>Propane Rate Block</Comment>
+                <Units code="2">
+                    <English>Litre</English>
+                    <French>Litre</French>
+                </Units>
+                <Minimum units="0" charge="0" />
+                <RateBlocks>
+                    <Block1 units="99999" costPerUnit="0.72" />
+                    <Block2 units="0" costPerUnit="0" />
+                    <Block3 units="0" costPerUnit="0" />
+                    <Block4 units="0" costPerUnit="0" />
+                </RateBlocks>
+            </Fuel>
+        </Propane>
+        <Wood>
+            <Fuel id="7">
+                <Label>Sth Ont</Label>
+                <Comment>Cord Rate</Comment>
+                <Units code="4">
+                    <English>Cords</English>
+                    <French>Cordes</French>
+                </Units>
+                <Minimum units="0" charge="0" />
+                <RateBlocks>
+                    <Block1 units="99999" costPerUnit="210" />
+                    <Block2 units="0" costPerUnit="0" />
+                    <Block3 units="0" costPerUnit="0" />
+                    <Block4 units="0" costPerUnit="0" />
+                </RateBlocks>
+            </Fuel>
+        </Wood>
+    </FuelCosts>
+    <Program class="ca.nrcan.gc.OEE.ERS.ErsProgram">
+        <Labels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <English>EnerGuide Rating System</English>
+            <French>Système de cote ÉnerGuide</French>
+        </Labels>
+        <Version xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" major="15" minor="7" build="19126">
+            <Labels>
+                <English>v15.7b19126</English>
+                <French>v15.7b19126</French>
+            </Labels>
+        </Version>
+        <SdkVersion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" major="1" minor="17" build="19126">
+            <Labels>
+                <English>v1.17b19126</English>
+                <French>v1.17b19126</French>
+            </Labels>
+        </SdkVersion>
+        <Options xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <Main applyHouseholdOperatingConditions="false" applyReducedOperatingConditions="false" atypicalElectricalLoads="false" waterConservation="false" referenceHouse="false">
+                <Vermiculite code="3">
+                    <English>No Vermiculite</English>
+                    <French>Pas de Vermiculite</French>
+                </Vermiculite>
+            </Main>
+            <RURComments xml:space="preserve" />
+        </Options>
+        <Results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <Ers>
+                <UGRCeilingsERSRating value="" />
+                <UGRCeilingCathFlatERSRating value="" />
+                <UGRWallsERSRating value="" />
+                <UGRFoundationERSRating value="" />
+                <UGRWindowsERSRating value="" />
+                <UGRDoorsERSRating value="" />
+                <UGRExposedFloorERSRating value="" />
+                <UGRAirTightnessERSRating value="91" />
+                <UGRHeatingERSRating value="81" />
+                <UGRCoolingERSRating value="93" />
+                <UGRHotWaterERSRating value="" />
+                <UGRVentilationERSRating value="" />
+                <UGRGenerationERSRating value="" />
+                <HOCUGRCeilingsERSRating value="" />
+                <HOCUGRCeilingCathFlatERSRating value="" />
+                <HOCUGRWallsERSRating value="" />
+                <HOCUGRFoundationERSRating value="" />
+                <HOCUGRWindowsERSRating value="" />
+                <HOCUGRDoorsERSRating value="" />
+                <HOCUGRExposedFloorERSRating value="" />
+                <HOCUGRAirTightnessERSRating value="91" />
+                <HOCUGRHeatingERSRating value="81" />
+                <HOCUGRCoolingERSRating value="93" />
+                <HOCUGRHotWaterERSRating value="" />
+                <HOCUGRVentilationERSRating value="" />
+                <HOCUGRGenerationERSRating value="" />
+                <HOCERSHLAir value="" />
+                <HOCERSHLFound value="" />
+                <HOCERSHLCeiling value="" />
+                <HOCERSHLWalls value="" />
+                <HOCERSHLWinDoor value="" />
+                <HOCERSHLWindow value="" />
+                <HOCERSHLDoor value="" />
+                <HOCERSHLExposedFlr value="" />
+                <HOCUGRERSHLAir value="" />
+                <HOCUGRERSHLFound value="" />
+                <HOCUGRERSHLCeiling value="" />
+                <HOCUGRERSHLWalls value="" />
+                <HOCUGRERSHLWinDoor value="" />
+                <HOCUGRERSHLWindow value="" />
+                <HOCUGRERSHLDoor value="" />
+                <HOCUGRERSHLExposedFlr value="" />
+                <HOCERSSpaceHeatEnergy value="" />
+                <HOCERSSpaceCoolEnergy value="" />
+                <HOCERSWaterHeatingEnergy value="" />
+                <HOCERSVentilationEnergy value="" />
+                <HOCERSLightApplianceEnergy value="" />
+                <HOCERSOtherElecEnergy value="" />
+                <HOCUGRERSSpaceHeatEnergy value="" />
+                <HOCUGRERSSpaceCoolEnergy value="" />
+                <HOCUGRERSWaterHeatingEnergy value="" />
+                <HOCUGRERSVentilationEnergy value="" />
+                <HOCUGRERSLightApplianceEnergy value="" />
+                <HOCUGRERSOtherElecEnergy value="" />
+                <ERSPVAvailableEnergy value="0.0" />
+                <UGRERSPVAvailableEnergy value="0.0" />
+                <HOCERSconElec value="" />
+                <HOCERSconNGas value="" />
+                <HOCERSconOil value="" />
+                <HOCERSconProp value="" />
+                <HOCERSconWood value="" />
+                <HOCNumberOfOccupants value="" />
+                <HOCThermostatHeatingDaytime value="" />
+                <HOCThermostatHeatingNighttime value="" />
+                <HOCCoolingSeasonMonths value="" />
+                <HOCThermostatCooling value="" />
+                <HOCLightingEnergySaver value="" />
+                <HOCAppliancesEnergySaver value="" />
+                <HOCClothesWasherEnergySaver value="" />
+                <HOCApplied value="False" />
+                <ERSTotalConsGHG value="0.1" />
+                <ERSTotalRenewableGHG value="0.0" />
+                <ERSDesCoolLoss value="1156.6" />
+                <UGRERSRenewableProd value="0.0" />
+                <UGRERSRenewableElec value="0.0" />
+                <UGRERSRenewableSolar value="0.0" />
+                <SOCHotWaterLoad value="189.81" />
+                <ROCHotWaterLoad value="" />
+                <HOCApplianceLoad value="" />
+                <HOCLightingLoad value="" />
+                <HOCOtherElectricalLoad value="" />
+                <ThermostatHeatingNighttime value="18" />
+                <CoolingSeasonMonths value="0" />
+                <ThermostatCooling value="25" />
+                <SOCApplianceLoad value="6.3" />
+                <SOCLightingLoad value="2.6" />
+                <SOCOtherElectricalLoad value="9.7" />
+                <HotWaterTemperature value="55" />
+                <HOCHotWaterLoad value="" />
+                <ROCApplianceLoad value="" />
+                <ROCLightingLoad value="" />
+                <ROCOtherElectricalLoad value="" />
+                <UtilizedSolarGains value="0.00" />
+                <NumBuildingStoreys value="0" />
+                <CommonSpaceElecCons value="0.0" />
+                <EAphone value="" />
+                <SOphone value="" />
+                <EAextension value="" />
+                <SOextension value="" />
+            </Ers>
+            <RefHse>
+                <theHouseFDWR value="0.013322419640840800553874041" />
+                <theRefHseFDWR value="0.17" />
+                <RefHseHDD value="0.0" />
+                <theRefHseFWR value="0.0" />
+            </RefHse>
+        </Results>
+    </Program>
+</HouseFile>

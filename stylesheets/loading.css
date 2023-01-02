@@ -1,0 +1,30 @@
+.loading {
+
+    position: absolute;
+    z-index: 30;
+    width: 300px;
+    height: 150px;
+    left: 50%;
+    top: 30px;
+    background: white;
+    margin-left: -150px;
+    border: 1px solid black;
+    border-radius: 1px;
+    box-shadow: 8px 10px 23px 0px rgba(0,0,0,0.75);
+    text-align: center;
+
+}
+
+.loading h2 {
+
+    text-align: center;
+    margin-bottom: 1px;
+
+}
+
+.loading p {
+
+    margin: 0 auto;
+    width: 90%;
+
+}

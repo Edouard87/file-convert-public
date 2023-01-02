@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ../partials/head.ejs %>
+  </head>
+  <body>
+    <%- include ../partials/navbar-top.ejs %>
+    <div style="display: none;" class="loading">
+	    <h2>Loading...</h2>
+	    <p>Please wait. We're importing your file.</p>
+      <img src="../images/energy3r.gif">
+    </div>
+
+    <script type="text/html" class="notification-template">
+      
+      <div style="display:none;" class="notification">
+        <div class="notification-title">
+            <h2>{{title}}</h2>
+          </div>
+          <p class="notification-body-spacing">{{body}}</p>
+          <p class="notification-time">{{time}}</p>
+      </div>
+      
+    </script>
+
+    <div class="window">
+      <div class="notifications"></div>
+      <div class="background-image"></div>
+      <div class="main-menu">
+        
+        <h2>Drag and drop an .xlsm report here to convert it to an H2K file.</h2>
+        
+        <div class="main-menu-bottom-content">
+          <h3>Alternatively, you can</h3>
+          <form enctype="multipart/form-data" id="uploadForm" action="/uploadfile" method="post">
+            <label for="upload-data">Manually select a file from your computer</label>
+            <input id="upload-data" type="file" name="uploadData" value="uploadData">
+          </form>
+        </div>
+      
+      </div>
+    </div>
+    
+    <div class="visible-form">
+      <form style="background: white;" id="main-form" class="main-form hidden" action="/upload" method="post">
+        <div class="form-content">
+          <%# Informations du Dossier %>
+            <span class="form-field"><label for="">Numéro de Dossier:</label> <input type="text" name="file[identification]"></span>
+            <span class="form-field"><label for="">ID du fichier précédent:</label> <input type="text" name="file[previousFileId]"></span>
+            <span class="form-field"><label for="">Type d'appartenance:</label> <input type="text" name="file[ownership]"></span>
+            <span class="form-field"><label for="">Rôle d'impôts foncier:</label> <input type="text" name="file[taxNumber]"></span>
+            <span class="form-field"><label for="">Date d'Évaluation:</label> <input type="date" name="file[evaluationDate]"></span>
+            <span class="form-field"><label for="">Nom Utilisateur:</label> <input type="text" name="file[enteredBy]"></span>
+            <span class="form-field"><label for="">Compagnie:</label> <input type="text" name="file[company]"></span>
+            <span class="form-field"><label for="">Constructeur:</label> <input type="text" name="file[builderName]"></span>
+          <%# Informations du Client %>
+            <%# Nom %>
+            <span class="form-field"><label for="">Prénom:</label> <input type="text" id="firstName" name="client[name][first]"></span>
+            <span class="form-field"><label for="">Nom:</label> <input type="text" id="lastName" name="client[name][last]"></span>
+            <%# Téléphone %>
+            <span class="form-field"><label for="street">Téléphone:</label> <input type="text" name="client[telephone]"></span>
+            <%# Adresse %>
+            <span class="form-field"><label for="street">Rue:</label> <input type="text" id="street" name="client[streetAddress][street]"></span>
+            <span class="form-field"><label for="city">Ville:</label> <input type="text" id="city" name="client[streetAddress][city]"></span>
+            <span class="form-field"><label for="">Province:</label> <input type="text" id="province" name="client[streetAddress][province]" value=""> </span>
+            <span class="form-field"><label for="postalCode">Code Postal:</label> <input type="text" id="postalCode" name="client[streetAddress][postalCode]"></span>
+            <%# Addresse de Correspondance %>
+            <span class="form-field"><label for="streetMail">Nom À l'Adresse Postale:</label> <input type="text" id="nameMail" name="client[mailingAddress][name]"></span>
+            <span class="form-field"><label for="streetMail">Rue:</label> <input type="text" id="streetMail" name="client[mailingAddress][street]"></span>
+            <span class="form-field"><label for="cityMail">Ville:</label> <input type="text" id="cityMail" name="client[mailingAddress][city]"></span>
+            <span class="form-field"><label for="provinceMail">Province:</label> <input type="text" id="provinceMail" name="client[mailingAddress][province]"></span>
+            <span class="form-field"><label for="postalCodeMail">Code Postal:</label> <input type="text" id="postalCodeMail" name="client[mailingAddress][postalCode]"></span>
+          <%# Info %>
+            <table>
+              <thead>
+                <tr>
+                  <td>ID</td>
+                  <td>Valeur</td>
+                </tr>
+              </thead>
+              <tbody id="info-body">
+
+              </tbody>
+            </table>
+            <%# Maison %>
+            <span class="form-field"><label>Type de maison:</label> <input default="1" type="number" name="house[specifications][houseType]"></span>
+            <span class="form-field"><label for="postalCodeMail">Étages:</label> <input default="1" type="number" name="house[specifications][storeys]"></span>
+            <span class="form-field"><label for="postalCodeMail">Orientation de la facade:</label> <input default="5" type="number" name="house[specifications][facingDirection]"></span>
+            <span class="form-field"><label for="postalCodeMail">Année de construction::</label> <input default="1" type="number" name="house[specifications][yearBuilt][code]"></span>
+            <span class="form-field"><label for="postalCodeMail">Année de construction::</label> <input type="number" name="house[specifications][yearBuilt][value]"></span>
+            <span class="form-field"><label>Volume total du bâtiment:</label> <input type="number" name="house[naturalAirInfiltration][specifications][house][volume]"></span>
+            <span class="form-field"><label for="">Hauteur du plus haut plafond:</label> <input type="number" name="house[naturalAirInfiltration][specifications][buildingState][highestCeiling]" ></span>
+            <span class="form-field"><label for="">Ventilation HRV Alimentation:</label> <input type="number" name="house[ventilation][wholeHouseVentilatorList][hrv][supplyFlowrate]"></span>
+            <span class="form-field"><label for="">Ventilation HRV Extraction:</label> <input type="number" name="house[ventilation][wholeHouseVentilatorList][hrv][exhaustFlowrate]"></span>
+            <span class="form-field"><label for="">Ventilation de Base (Extraction):</label> <input type="number" name="house[ventilation][wholeHouseVentilatorList][baseVentilator][exhaustFlowrate]"></span>
+
+            <span class="form-field"><label for=""></label> <input type="number" step="0.001" name="house[specifications][heatedFloorArea][aboveGrade]" ></span>
+            <span class="form-field"><label for=""></label> <input type="number" step="0.001" name="house[specifications][heatedFloorArea][belowGrade]"  ></span>
+
+            <%# Environnement %>
+            <span class="form-field"><label for="">Région (climatique):</label> <input default="6" type="number" name="weather[region]"></span>
+            <span class="form-field"><label for="">Lieu (climatique):</label> <input default="46" type="number" name="weather[location]"></span>
+          <%# Géométrie %>
+            <%# Sous-Sol %>
+            <span class="form-field"><label for="">Surface plancher sous-sol:</label> <input type="number" step="0.001" id="" name="basement[floor][measurements][area]" ></span>
+            <span class="form-field"><label for="">Périmètre total sous-sol:</label> <input type="number" step="0.001" id="" name="basement[floor][measurements][perimeter]" ></span>
+            <span class="form-field"><label for="">Hauteur du mur sous-sol:</label> <input type="number" step="0.001" id="" name="basement[wall][measurements][height]" ></span>
+            <span class="form-field"><label for="">Profondeur du sous-sol:</label> <input type="number" step="0.001" id="" name="basement[wall][measurements][depth]" ></span>
+            
+            <span class="form-field"><label for="">Isolation Extérieur (code):</label> <input default="User Specified" type="text" step="0.001" id="" name="basement[wall][construction][interiorAddedInsulation][code]" ></span>
+            <span class="form-field"><label for="">Isolation Extérieur (valeur):</label> <input type="number" step="0.001" id="" name="basement[wall][construction][interiorAddedInsulation][value]" ></span>
+            
+            <span class="form-field"><label for="">Isolation Intérieur (code):</label> <input default="User Specified" type="text" step="0.001" id="" name="basement[wall][construction][exteriorAddedInsulation][code]" ></span>
+            <span class="form-field"><label for="">Isolation Intérieur (valeur):</label> <input type="number" step="0.001" id="" name="basement[wall][construction][exteriorAddedInsulation][value]" ></span>
+
+            <span class="form-field"><label for="">Profondeur du Sous-sol:</label> <input type="number" step="0.001" id="" name="basement[wall][construction][depth]" > mètres</span>
+            
+            <%# Plafond %>
+            <span class="form-field"><label for="">Nom de la Composante:</label> <input default="Plafond01" value="Plafond01" type="text" name="components[ceiling][label]"></span>
+            <span class="form-field"><label for="">Type de Plafond:</label> <input onchange="roofTypeChange();" default="5" type="number" name="components[ceiling][construction][type]"></span>
+            <span class="form-field"><label for="">Longueur du plafond:</label> <input type="number" step="0.001" id="" name="components[ceiling][measurements][length]" > mètres</span>
+            <span class="form-field"><label for="">Surface plafond:</label> <input type="number" step="0.001" id="" name="components[ceiling][measurements][area]" > mètres</span>
+            <span class="form-field"><label for="">Hauteur du talon:</label> <input type="number" step="0.001" id="" name="components[ceiling][measurements][heelHeight]" > mètres</span>
+            <%# ####################################################################### %>
+            <%# the dropdown does not have a readonly attribute. The following is a fix %>
+            <%# ####################################################################### %>
+            <input type="hidden" onchange="slopeCodeEditChange();" default="1" name="components[ceiling][measurements][slope][code]" value="0">
+            <span class="form-field"><label for="">Pente du Toit:</label><select class="roofDropdown" onchange="slopeCodeChange();">
+              <option value="0">0: Spécifié par l'utilisateur</option>
+              <option value="1">1: Toit Plat</option>
+              <option value="2">2: 2/12</option>
+              <option value="3">3: 3/12</option>
+              <option value="4">4: 4/12</option>
+              <option value="5">5: 5/12</option>
+              <option value="6">6: 6/12</option>
+              <option value="7">7: 7/12</option>
+            </select><input type="number" step="0.001" onkeyup="roofSlopeKeyup();" name="components[ceiling][measurements][slope][value]"> mètres</span>
+            <span class="form-field"><label for="">Code d'Isolation:</label><select id="ceiling-code-select" name="components[ceiling][type][code]">
+              <option value="User specified">Spécifié par l'utilisateur</option>
+            </select></span>
+            <span class="form-field"><label>Valeur R: </label><input type="number" step="0.001" id="" name="components[ceiling][type][rValue]"> RSI</span>
+            <%# Étage Principal %>
+            <span class="form-field"><label>Périmètre du RDC: </label><input type="number" step="0.001" id="" name="components[wall][measurements][perimeter]"> mètres</span>
+            <span class="form-field"><label>Hauteur du RDC: </label><input type="number" step="0.001" id="" name="components[wall][measurements][height]"> mètres</span>
+            <span class="form-field"><label>Code d'Isolation: </label><select id="wall-code-select" name="components[wall][construction][type][code]">
+              <option value="User specified">Spécifié par l'utilisateur</option>
+            </select></span>
+            <span class="form-field"><label>Valeur R: </label><input type="number" step="0.001" id="ceiling-code-input" name="components[wall][construction][type][rValue]"></span>
+      </form>
+    </div>
+    <div id="form-duplicate" style="display: none">
+      <%# ################################################## %>
+      <%# Duplicate of form goes here for the reset function %>
+      <%# ################################################## %>
+    </div>
+    <%- include ../partials/scripts.ejs %>
+  </body>
+</html>
